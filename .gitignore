@@ -283,3 +283,5 @@ venv/
 #IDEA
 
 .idea/
+
+static/
