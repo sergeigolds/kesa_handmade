@@ -53,5 +53,13 @@
             </form>
         </div>
     </section>
+
+
+    <div class="test">
+{% for image in product.images.all %}
+    <h2>{{ product.title }}</h2>
+    <img src="{{ image.image.url }}" alt="{{ product.title }}">
+{% endfor %}
+
     <!-- ##### Single Product Details Area End ##### -->
 {% endblock content %}

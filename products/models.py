@@ -36,16 +36,24 @@ class Product(models.Model):
         verbose_name_plural = 'Товары'
 
 
-class Photos(models.Model):
-    """Test"""
-    title = models.CharField('Название', max_length=150)
-    description = models.TextField('Описание')
-    additional_photo = models.ImageField('Дополнительное фото', upload_to='products_additional/')
-    url = models.SlugField(max_length=160, unique=True)
-    product = models.ForeignKey(Product, verbose_name='Продукт', on_delete=models.CASCADE)
+# class Photos(models.Model):
+#     """Test"""
+#     title = models.CharField('Название', max_length=150)
+#     description = models.TextField('Описание')
+#     additional_photo = models.ImageField('Дополнительное фото', upload_to='products_additional/')
+#     url = models.SlugField(max_length=160, unique=True)
+#     product = models.ForeignKey(Product, verbose_name='Продукт', on_delete=models.CASCADE)
+#
+#     def __str__(self):
+#         return self.title
+#
+#     class Meta:
+#         verbose_name = 'Дополнительная фотография'
+#         verbose_name_plural = 'Дополнительные фотографии'
 
-    def __str__(self):
-        return self.title
+class Images(models.Model):
+    product = models.ForeignKey(Product, default=None, related_name='images', on_delete=models.PROTECT)
+    image = models.ImageField(upload_to='products/', blank=True)
 
     class Meta:
         verbose_name = 'Дополнительная фотография'
