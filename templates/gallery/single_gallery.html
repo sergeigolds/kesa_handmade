@@ -1,0 +1,14 @@
+{% extends 'products/base.html' %}
+
+
+
+{% block content %}
+
+    <div class="test">
+{% for image in gallery.images.all %}
+    <h2>{{ gallery.title }}</h2>
+    <img src="{{ image.image.url }}" alt="{{ gallery.title }}">
+{% endfor %}
+
+    </div>
+{% endblock content %}
